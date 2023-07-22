@@ -136,11 +136,10 @@ section {
     padding: var(--content-padding) calc(4 * var(--padding));
 }
 
-section[intro],
-section[castle] {
+section[intro] p,
+section[castle] p {
     font-size: calc(4 * var(--font-size-base));
     line-height: 1.3em;
-    font-family: var(--font-matrix);
     column-count: 1;
     text-indent: calc(100% / 3);
 }
@@ -178,7 +177,7 @@ section[castle] {
     transform-origin: top center;
     padding: 50px;
     border-radius: 50%;
-
+    pointer-events: none;
     -skrollr-animation-name: logo-zoom;
 }
 
@@ -232,7 +231,6 @@ section[castle] {
     border-radius: 3px;
     font-family: var(--font-sans);
     font-size: 1.5em;
-
     opacity: 1;
 
     -skrollr-animation-name: logo-small;
@@ -280,12 +278,6 @@ section[castle] {
     border-radius: var(--border-radius-outer);
     margin-left: var(--padding);
     margin-right: var(--padding);
-    box-shadow: 0px 0px 0px rgba(162, 112, 255, 0.7), 0px 0px 0px rgba(162, 112, 255, 0.3);
-    transition: all var(--transition-eio-06);
-}
-
-[frame]:hover {
-    box-shadow: 0px 0px 20px rgba(162, 112, 255, 0.7), 0px 0px 70px rgba(162, 112, 255, 0.3);
     background: var(--purple);
 }
 
@@ -293,20 +285,24 @@ section[castle] {
 
 playlist {
     gap: var(--padding);
-    border-radius: var(--border-radius);
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    transition: all var(--transition-eio-06);
+    grid-template-columns: 1fr;
+    background: url(assets/spotify.png) right bottom no-repeat, var(--purple);
+    background-size: contain;
+    padding: calc(2*var(--padding));
 }
 
 [resize-playlist] {
-    width: 960px;
-    max-width: calc(100% - 2 * var(--padding));
+    width: 100vw;
     margin-left: auto;
     margin-right: auto;
     background: transparent;
-    margin-top: var(--content-padding);
-    margin-bottom: var(--content-padding);
+    opacity: 1;
+    transition: all var(--transition-eio-06);
+}
+
+[resize-playlist]:hover {
+    opacity: 1;
 }
 
 
@@ -314,27 +310,30 @@ playlist * {
     border-radius: var(--border-radius) !important;
 }
 
-playlist iframe {
-    mix-blend-mode: multiply;
-    filter: saturate(0) brightness(0.5);
-    transition: all var(--transition-eio-06);
-    opacity: 0.2;
-    translate: 50% 0;
-    scale: 0.7;
-}
-
-playlist:hover iframe {
-    opacity: 1;
-    filter: saturate(0) brightness(1.5);
-}
-
 playlist div {
-    translate: calc(-50% - var(--padding)) 0;
-    background: url(assets/spotify.png) right bottom no-repeat, var(--purple);
-    background-size: contain;
+    max-width: 480px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: var(--padding);
+}
+
+playlist div iframe {
+    mix-blend-mode: multiply;
+    filter: saturate(0) brightness(1);
+
+}
+
+playlist div div.iframe-background {
+    background: var(--purple);
+    overflow: hidden;
+    border: 1px solid var(--purple);
+    border-bottom: 0px;
+}
+
+playlist div div {
+
     color: var(--black);
-    padding: calc(2 * var(--padding));
-    padding-right: 50%;
+
     display: flex;
     font-family: var(--font-serif);
     -webkit-backface-visibility: hidden;
@@ -342,32 +341,45 @@ playlist div {
 
 }
 
-[resize-playlist]:hover playlist {
-    gap: var(--padding);
-}
-
-[resize-playlist]:hover div,
-[resize-playlist]:hover iframe {
-    translate: 0 0;
-    scale: 1;
-}
 
 /* Images */
 
+.swiper {
+    width: 100%;
+    display: block;
+}
+
+.swiper[inline] {
+    overflow: visible !important;
+}
 
 .swiper-slide {
     display: block;
     position: relative;
-    overflow: hidden;
-    max-height: 100vh;
+    max-height: auto;
+    max-width: 100%;
 }
 
-.swiper-slide.fullscreen img {
+[fullscreen] .swiper-slide {
+    max-height: 100vh;
     width: 100vw;
+}
+
+.swiper-slide img {
+    width: 100%;
     pointer-events: none;
     -webkit-touch-callout: none;
     z-index: 1;
 }
+
+[fullscreen] .swiper-slide img {
+    width: 100%;
+    pointer-events: none;
+    -webkit-touch-callout: none;
+    z-index: 1;
+}
+
+
 
 .slide-title-wrapper {
     width: 100%;
@@ -392,10 +404,11 @@ playlist div {
     bottom: var(--padding);
     transition: translate 0.6s cubic-bezier(0.68, -0.6, 0.32, 1.6);
     font-family: var(--font-sans);
-    font-size: 1.5em;
+    font-size: calc(1.5 *var(--font-size-base));
 }
 
-.slide-title-wrapper:hover .slide-title {
+
+[fullscreen] .slide-title-wrapper:hover .slide-title {
     translate: -50% 0%;
 }
 
@@ -406,13 +419,19 @@ playlist div {
     margin-top: 0;
     width: auto;
     padding: var(--padding);
-    font-size: 1.5em;
+    font-size: calc(1.5 *var(--font-size-base));
+    opacity: 0;
+    transition: opacity 0.6s cubic-bezier(0.68, -0.6, 0.32, 1.6);
+}
+
+.swiper:hover .swiper-button {
+    opacity: 1;
 }
 
 
 .swiper-button::after {
     font-size: 1.5em !important;
-    color: white !important;
+    color: var(--purple) !important;
     font-family: var(--font-sans) !important;
     transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
 }
@@ -421,63 +440,60 @@ playlist div {
     scale: 1.4;
 }
 
-
 .swiper-button-prev {
+    left: 0px;
+}
+
+[fullscreen] .swiper-button-prev {
     left: 0;
 }
 
-.swiper-button-next {
+
+[fullscreen] .swiper-button-next {
     right: 0;
 }
 
-.swiper-button-next::before,
-.swiper-button-prev::before {
+[fullscreen] .swiper-button-next::before,
+[fullscreen] .swiper-button-prev::before {
     --gradient-width: 100px;
     background: rgb(0, 0, 0);
     content: "";
     height: 100%;
     position: absolute;
-    transition: all 0.3s ease-in-out !important;
+    transition: all 0.6s cubic-bezier(0.33, 1, 0.68, 1) !important;
     width: var(--gradient-width);
     z-index: -1;
     pointer-events: none;
 }
 
-.swiper-button-next::before {
+[fullscreen] .swiper-button-next::before {
     background: linear-gradient(-90deg, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0) 100%);
     right: 0;
     translate: var(--gradient-width) 0;
 }
 
-.swiper-button-prev::before {
+[fullscreen] .swiper-button-prev::before {
     background: linear-gradient(90deg, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0) 100%);
     left: 0;
     translate: calc(-1 * var(--gradient-width)) 0;
 }
 
-.swiper-button-next:hover::before,
-.swiper-button-prev:hover::before {
+[fullscreen] .swiper-button-next:hover::before,
+[fullscreen] .swiper-button-prev:hover::before {
     translate: 0 0;
 }
 
 
 .swiper-button-next::after {
-    content: "->";
+    content: "→";
 }
 
 .swiper-button-prev::after {
-    content: "<-";
+    content: "←";
 }
 
 /* Sections */
 
-section {outline: 1px solid red;}
+section {}
 
 /* Forest */
-
-.forest {
-    width: 100vw;
-    display: block;
-    position: relative;
-    background: black;
-}

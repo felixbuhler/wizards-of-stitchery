@@ -1,6 +1,7 @@
 import { defineConfig } from "tinacms";
 
 import { forest } from "./forest";
+import { castle } from "./castle";
 
 // Your hosting provider likely exposes this as an environment variable
 const branch = process.env.HEAD || process.env.VERCEL_GIT_COMMIT_REF || "main";
@@ -51,6 +52,14 @@ export default defineConfig({
         path: "content/forest",
         fields: [
           ...forest(),
+        ],
+      },
+      {
+        name: "castle",
+        label: "Castle",
+        path: "content/castle",
+        fields: [
+          ...castle(),
         ],
       }
 

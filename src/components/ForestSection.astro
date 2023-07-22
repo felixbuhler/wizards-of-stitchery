@@ -4,7 +4,7 @@ import SwiperSlide from "./SwiperSlide.astro";
 const forests = await Astro.glob("../../content/forest/*.{md,mdx}");
 ---
 
-<div class="swiper forest gallery">
+<div class="swiper forests" fullscreen>
   <div class="swiper-wrapper">
     {
       forests.map((post) => (

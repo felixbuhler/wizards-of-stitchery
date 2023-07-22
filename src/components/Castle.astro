@@ -1,7 +1,31 @@
+---
+import SwiperSlide from "./SwiperSlide.astro";
+
+const castles = await Astro.glob("../../content/castle/*.{md,mdx}");
+---
+
 <section castle>
-    <p serif>
-        <span blackletter>In a realm of yore,</span> a primeval woodland unfurled, veiled in an ethereal veil. Its
-        verdant depths whispered ancient secrets, where time itself seemed to dance amidst the gnarled branches and
-        dappled glades.
-    </p>
+  <p serif>
+    <span blackletter>Amidst the tapestry of antiquity,</span> a dread fortress emerged,
+    ensnared in the tendrils of mystic malevolence. Its ancient stones bore witness
+    to the echoes of wickedness, whispering tales of shadows and desolation.
+  </p>
+
+  <div class="swiper castles" inline>
+    <div class="swiper-wrapper">
+      {
+        castles.map((post) => (
+          <>
+            <SwiperSlide
+              imageURL={post.frontmatter.imageURL}
+              title={post.frontmatter.title}
+            />
+          </>
+        ))
+      }
+    </div>
+
+    <div class="swiper-button-prev swiper-button"></div>
+    <div class="swiper-button-next swiper-button"></div>
+  </div>
 </section>
