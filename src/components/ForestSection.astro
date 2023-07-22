@@ -1,0 +1,23 @@
+---
+import SwiperSlide from "./SwiperSlide.astro";
+
+const forests = await Astro.glob("../../content/forest/*.{md,mdx}");
+---
+
+<div class="swiper forest gallery">
+  <div class="swiper-wrapper">
+    {
+      forests.map((post) => (
+        <>
+          <SwiperSlide
+            imageURL={post.frontmatter.imageURL}
+            title={post.frontmatter.title}
+          />
+        </>
+      ))
+    }
+  </div>
+
+  <div class="swiper-button-prev swiper-button"></div>
+  <div class="swiper-button-next swiper-button"></div>
+</div>

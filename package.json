@@ -1,0 +1,21 @@
+{
+  "name": "astro-test-frontend",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "tinacms dev -c 'astro dev'",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@astrojs/image": "^0.17.2",
+    "@astrojs/vercel": "^3.7.4",
+    "@tinacms/cli": "^1.5.22",
+    "astro": "^2.9.1",
+    "skrollr": "^0.6.26",
+    "swiper": "^10.0.4",
+    "tinacms": "^1.5.13"
+  }
+}

@@ -1,0 +1,75 @@
+---
+import Header from "../components/Header.astro";
+
+import Mountains from "../components/Mountains.astro";
+import Intro from "../components/Intro.astro";
+import ForestSection from "../components/ForestSection.astro";
+import Spotify from "../components/Spotify.astro";
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>The Evil Wizards Of Stitchery</title>
+    <!-- CSS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="https://use.typekit.net/nug4kzv.css" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"
+    />
+    <link rel="stylesheet" href="/styles/global.css" data-skrollr-stylesheet />
+
+    <!-- JS -->
+  </head>
+  <body>
+    <Header />
+
+    <Mountains />
+    <main>
+      <Intro />
+      <ForestSection />
+      <Spotify />
+    </main>
+    <script type="text/javascript" src="js/skrollr.min.js"></script>
+    <script type="text/javascript" src="js/skrollr.stylesheets.min.js"></script>
+    <script type="text/javascript" src="js/swiper-bundle.min.js"></script>
+
+    <script type="text/javascript">
+      // Skrollr
+
+      var s = skrollr.init();
+      if (s.isMobile()) {
+        s.destroy();
+      }
+
+      const swiper = new Swiper(".swiper", {
+        // Optional parameters
+        direction: "horizontal",
+        loop: true,
+        effect: "slide",
+        speed: 1000,
+
+        // If we need pagination
+        pagination: {
+          el: ".swiper-pagination",
+        },
+
+        // Navigation arrows
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        },
+      });
+    </script>
+  </body>
+</html>

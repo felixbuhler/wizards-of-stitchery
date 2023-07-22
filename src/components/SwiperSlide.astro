@@ -1,0 +1,11 @@
+---
+const { imageURL } = Astro.props;
+const { title } = Astro.props;
+---
+
+<div class="swiper-slide fullscreen">
+  <img src={imageURL} />
+  <div class="slide-title-wrapper">
+    <div class="slide-title">{title}</div>
+  </div>
+</div>
