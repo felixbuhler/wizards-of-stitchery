@@ -207,7 +207,9 @@ section[castle] p {
 }
 
 @-skrollr-keyframes logo-small {
+    19p {display: none;}
     20p {
+        display: block;
         translate: -50% -200%;
     }
 
@@ -349,6 +351,7 @@ playlist div div {
     display: block;
 }
 
+
 .swiper[inline] {
     overflow: visible !important;
 }
@@ -405,6 +408,7 @@ playlist div div {
     transition: translate 0.6s cubic-bezier(0.68, -0.6, 0.32, 1.6);
     font-family: var(--font-sans);
     font-size: calc(1.5 *var(--font-size-base));
+    overflow: hidden;
 }
 
 
@@ -444,12 +448,8 @@ playlist div div {
     left: 0px;
 }
 
-[fullscreen] .swiper-button-prev {
-    left: 0;
-}
 
-
-[fullscreen] .swiper-button-next {
+.swiper-button-next {
     right: 0;
 }
 
