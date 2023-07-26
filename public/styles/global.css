@@ -21,7 +21,8 @@
     --font-size-base: 12px;
 
     /* Fonts */
-    --font-serif: "matrix-ii-tall-semi", sans-serif;
+    --font-serif: matrix-ii-ext-semi-narrow, sans-serif;
+    --font-serif-small: "magneta", serif;
     --font-blackletter: "schwarzkopf-old", sans-serif;
     --font-sans: 'Inter', sans-serif;
 
@@ -35,6 +36,10 @@
 
     /* Logo */
     --logo-width: 300px;
+
+    /* Content Width */
+    --normal-content: 999px;
+    --small-content: 666px;
 
     /* Transitions */
 
@@ -103,7 +108,7 @@ p {
 }
 
 [serif] [blackletter] {
-    font-size: 1.05em;
+    font-size: 1.3em;
 }
 
 /* Tools */
@@ -147,7 +152,7 @@ section p[serif] {
     line-height: 1.3em;
     column-count: 1;
     text-indent: calc(100% / 3);
-    max-width: 960px;
+    max-width: var(--normal-content);
     margin: 0 auto;
     display: block;
     width: 100%;
@@ -157,11 +162,12 @@ section p[small-text] {
     text-indent: calc(100% / 2);
     font-size: calc(1.5 * var(--font-size-base));
     line-height: calc(2.25 * var(--font-size-base));
-    max-width: 666px;
+    max-width: var(--small-content);
     margin: 0 auto;
     text-align: justify;
     width: 100%;
     padding: 0 var(--padding);
+    font-family: var(--font-serif-small);
 }
 
 
@@ -343,7 +349,7 @@ playlist * {
 }
 
 playlist div {
-    max-width: 480px;
+    max-width: var(--small-content);
     margin-left: auto;
     margin-right: auto;
     margin-bottom: var(--padding);
@@ -384,7 +390,7 @@ playlist div div {
 
 .swiper[inline] {
     overflow: visible !important;
-    max-width: 960px;
+    max-width: var(--normal-content);
     width: 100%;
 }
 
@@ -547,17 +553,24 @@ section {}
 /* Footer */
 
 footer {
-    background: var(--red);
+    background: url(assets/mountains.png);
+    background-position: center bottom;
+    background-size: cover;
     display: block;
     position: relative;
     width: 100%;
+    padding-top: calc(4 * var(--padding));
+    padding-bottom: calc(4 * var(--padding));
+
 }
 
 footer p {
-    max-width: 666px;
+    max-width: var(--small-content);
     width: 100%;
     margin: 0 auto;
     display: block;
+    padding: 0 var(--padding);
+    color: var(--black);
 }
 
 /* Media Queries */
