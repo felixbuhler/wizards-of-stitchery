@@ -106,6 +106,13 @@ p {
     font-size: 1.05em;
 }
 
+/* Tools */
+
+[margin] {
+    margin-top: calc(3 * var(--padding));
+    margin-bottom: calc(3 * var(--padding));
+}
+
 /* Layout */
 
 /* Header */
@@ -129,27 +136,32 @@ main {
 
 /* Sections */
 
-section {}
+section {
+    padding-top: calc(4 * var(--padding));
+    padding-bottom: calc(4 * var(--padding));
+}
 
-section[intro] p,
-section[castle] p,
-section[wizard] p {
+section p[serif] {
     font-size: calc(4 * var(--font-size-base));
+    padding: 0 var(--padding);
     line-height: 1.3em;
     column-count: 1;
     text-indent: calc(100% / 3);
     max-width: 960px;
-    padding: var(--content-padding) calc(4 * var(--padding));
     margin: 0 auto;
     display: block;
     width: 100%;
 }
 
 section p[small-text] {
+    text-indent: calc(100% / 2);
     font-size: calc(1.5 * var(--font-size-base));
     line-height: calc(2.25 * var(--font-size-base));
     max-width: 666px;
+    margin: 0 auto;
+    text-align: justify;
     width: 100%;
+    padding: 0 var(--padding);
 }
 
 
@@ -282,6 +294,12 @@ section p[small-text] {
 
     -skrollr-animation-name: mountain-zoom;
 
+}
+
+@media (pointer: coarse) {
+    .mountains {
+        margin-top: 50px;
+    }
 }
 
 /* Frame */
@@ -525,6 +543,22 @@ playlist div div {
 /* Sections */
 
 section {}
+
+/* Footer */
+
+footer {
+    background: var(--red);
+    display: block;
+    position: relative;
+    width: 100%;
+}
+
+footer p {
+    max-width: 666px;
+    width: 100%;
+    margin: 0 auto;
+    display: block;
+}
 
 /* Media Queries */
 

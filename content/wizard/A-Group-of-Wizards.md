@@ -1,5 +1,7 @@
 ---
-title: A Group of Wizards
-imageURL: /images/Wizards_04.png
+title: A Group of Wizards 1
+imageURL: /images/Wizards_06.png
+description: ''
 ---
+
 
