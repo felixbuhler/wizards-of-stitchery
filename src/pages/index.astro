@@ -7,6 +7,8 @@ import ForestSection from "../components/ForestSection.astro";
 import Spotify from "../components/Spotify.astro";
 import CastleSection from "../components/CastleSection.astro";
 import WizardSection from "../components/WizardSection.astro";
+import Footer from "../components/Footer.astro";
+import FooterScripts from "../components/FooterScripts.astro";
 ---
 
 <html lang="en">
@@ -43,59 +45,9 @@ import WizardSection from "../components/WizardSection.astro";
       <Spotify />
       <CastleSection />
       <WizardSection />
+      <Footer />
     </main>
-    <script type="text/javascript" src="js/skrollr.min.js"></script>
-    <script type="text/javascript" src="js/skrollr.stylesheets.min.js"></script>
-    <script type="text/javascript" src="js/swiper-bundle.min.js"></script>
-
-    <script type="text/javascript">
-      // Skrollr
-
-      var s = skrollr.init();
-      if (s.isMobile()) {
-        s.destroy();
-      }
-
-      const swiperForests = new Swiper(".swiper[fullscreen]", {
-        // Optional parameters
-        direction: "horizontal",
-        loop: true,
-        effect: "slide",
-        speed: 1000,
-
-        // If we need pagination
-        pagination: {
-          el: ".swiper-pagination",
-        },
-
-        // Navigation arrows
-        navigation: {
-          nextEl: ".swiper-button-next",
-          prevEl: ".swiper-button-prev",
-        },
-      });
-
-      const swiperCastles = new Swiper(".swiper.castles", {
-        // Optional parameters
-        direction: "horizontal",
-        loop: true,
-        effect: "fade",
-        fadeEffect: {
-          crossFade: true,
-        },
-        speed: 1000,
-
-        // If we need pagination
-        pagination: {
-          el: ".swiper-pagination",
-        },
-
-        // Navigation arrows
-        navigation: {
-          nextEl: ".swiper-button-next",
-          prevEl: ".swiper-button-prev",
-        },
-      });
-    </script>
+    
+    <FooterScripts />
   </body>
 </html>
