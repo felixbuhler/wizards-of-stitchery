@@ -4,14 +4,14 @@ import SwiperSlide from "./SwiperSlide.astro";
 const wizards = await Astro.glob("../../content/wizard/*.{md,mdx}");
 ---
 
-<section castle>
+<section wizard>
   <p serif>
     <span blackletter>Amidst the tapestry of antiquity,</span> a dread fortress emerged,
     ensnared in the tendrils of mystic malevolence. Its ancient stones bore witness
     to the echoes of wickedness, whispering tales of shadows and desolation.
   </p>
 
-  <div class="swiper castles" inline>
+  <div class="swiper wizards" fullscreen>
     <div class="swiper-wrapper">
       {
         wizards.map((post) => (

@@ -128,20 +128,20 @@ main {
 
 /* Sections */
 
-section {
-    margin: 0 auto;
-    display: block;
-    width: 100%;
-    max-width: 960px;
-    padding: var(--content-padding) calc(4 * var(--padding));
-}
+section {}
 
 section[intro] p,
-section[castle] p {
+section[castle] p,
+section[wizard] p {
     font-size: calc(4 * var(--font-size-base));
     line-height: 1.3em;
     column-count: 1;
     text-indent: calc(100% / 3);
+    max-width: 960px;
+    padding: var(--content-padding) calc(4 * var(--padding));
+    margin: 0 auto;
+    display: block;
+    width: 100%;
 }
 
 /* Footer */
@@ -207,7 +207,10 @@ section[castle] p {
 }
 
 @-skrollr-keyframes logo-small {
-    19p {display: none;}
+    19p {
+        display: none;
+    }
+
     20p {
         display: block;
         translate: -50% -200%;
@@ -354,6 +357,8 @@ playlist div div {
 
 .swiper[inline] {
     overflow: visible !important;
+    max-width: 960px;
+    width: 100%;
 }
 
 .swiper-slide {
@@ -402,7 +407,7 @@ playlist div div {
     position: absolute;
     border-radius: 3px;
     left: 50%;
-    translate: -50% 300%;
+    translate: -50% 0%;
     z-index: 9;
     bottom: var(--padding);
     transition: translate 0.6s cubic-bezier(0.68, -0.6, 0.32, 1.6);
@@ -411,6 +416,17 @@ playlist div div {
     overflow: hidden;
 }
 
+[inline] .slide-title {
+    padding: 0; 
+    color: var(--purple);
+    border-radius: 0;
+    background: none;
+    overflow: visible;
+}
+
+[fullscreen] .slide-title-wrapper .slide-title {
+    translate: -50% 300%;
+}
 
 [fullscreen] .slide-title-wrapper:hover .slide-title {
     translate: -50% 0%;
