@@ -21,7 +21,7 @@
     --font-size-base: 12px;
 
     /* Fonts */
-    --font-serif: matrix-ii-ext-semi-narrow, sans-serif;
+    --font-serif: matrix-ii-ext-semi-narrow, serif;
     --font-serif-small: "magneta", serif;
     --font-blackletter: "schwarzkopf-old", sans-serif;
     --font-sans: 'Inter', sans-serif;
@@ -550,12 +550,54 @@ playlist div div {
 
 section {}
 
+section[wizard-ruler] {
+    width: 100%;
+    background: var(--red);
+    min-height: 100vh;
+    display: block;
+}
+
+section[wizard-ruler] .content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    max-width: var(--normal-content);
+    margin: 0 auto;
+    gap: calc(2*var(--padding));
+}
+
+section[wizard-ruler] .content .image img {
+    width: 100%;
+}
+
+section[wizard-ruler] .content .text {
+    color: var(--black);
+}
+
+section[wizard-ruler] .content .text h3 {
+    font-family: var(--font-blackletter);
+    font-size: calc(10 * var(--font-size-base));
+}
+
+section[wizard-ruler] .content .text p {
+    color: inherit;
+    text-indent: 0;
+    padding: 0;
+}
+
+section[wizard-ruler] .content:nth-child(even) .image {
+    grid-column: 2;
+}
+
+section[wizard-ruler] .content:nth-child(even) .text {
+    grid-column: 1;
+    grid-row: 1;
+
+}
+
 /* Footer */
 
 footer {
-    background: url(assets/mountains.png);
-    background-position: center bottom;
-    background-size: cover;
+    background: white;
     display: block;
     position: relative;
     width: 100%;

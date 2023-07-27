@@ -3,6 +3,7 @@ import { defineConfig } from "tinacms";
 import { forest } from "./forest";
 import { castle } from "./castle";
 import { wizard } from "./wizard";
+import { wizardRuler } from "./wizardruler";
 
 // Your hosting provider likely exposes this as an environment variable
 const branch = process.env.HEAD || process.env.VERCEL_GIT_COMMIT_REF || "main";
@@ -67,6 +68,14 @@ export default defineConfig({
         name: "wizard",
         label: "Wizard",
         path: "content/wizard",
+        fields: [
+          ...wizard(),
+        ],
+      },
+      {
+        name: "wizardRuler",
+        label: "Wizard Ruler",
+        path: "content/wizardruler",
         fields: [
           ...wizard(),
         ],
