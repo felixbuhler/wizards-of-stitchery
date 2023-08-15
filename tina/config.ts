@@ -4,6 +4,7 @@ import { forest } from "./forest";
 import { castle } from "./castle";
 import { wizard } from "./wizard";
 import { wizardRuler } from "./wizardruler";
+import { wizardRulerSingle } from "./wizardrulersingle";
 
 // Your hosting provider likely exposes this as an environment variable
 const branch = process.env.HEAD || process.env.VERCEL_GIT_COMMIT_REF || "main";
@@ -77,7 +78,15 @@ export default defineConfig({
         label: "Wizard Ruler",
         path: "content/wizardruler",
         fields: [
-          ...wizard(),
+          ...wizardRuler(),
+        ],
+      },
+      {
+        name: "wizardRulerSingle",
+        label: "Wizard Ruler Single",
+        path: "content/wizardrulersingle",
+        fields: [
+          ...wizardRulerSingle(),
         ],
       }
 
