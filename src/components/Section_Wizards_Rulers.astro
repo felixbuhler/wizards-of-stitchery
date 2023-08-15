@@ -1,0 +1,30 @@
+---
+import Swiper_Slide from "./Swiper_Slide.astro";
+
+const wizardRulersSingle = await Astro.glob(
+  "../../content/wizardruler/*.{md,mdx}"
+);
+---
+
+<section
+  id="wizard-leader-images"
+  class="slider-container bg-dark distance text-white"
+>
+  <div class="grid">
+    {
+      wizardRulersSingle.map((post) => (
+        <>
+          <div class="content">
+            <div class="grid-image">
+              <img src={post.frontmatter.imageURL} />
+            </div>
+            <div class="grid-text">
+              <h3>{post.frontmatter.title}</h3>
+              <p class="small-text">{post.frontmatter.description}</p>
+            </div>
+          </div>
+        </>
+      ))
+    }
+  </div>
+</section>

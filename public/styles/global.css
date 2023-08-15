@@ -416,6 +416,48 @@ section.mountains {
     max-height: 100%;
 }
 
+/* Wizard Ruler */
+
+.grid {
+    width: 100%;
+    display: block;
+}
+
+.grid .content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    max-width: var(--normal-content);
+    margin: 0 auto;
+    gap: calc(2*var(--padding));
+    margin-bottom: var(--padding-box);
+}
+
+.grid .content .grid-image img {
+    width: 100%;
+}
+
+.grid .content .grid-text h3 {
+    font-family: var(--font-blackletter);
+    font-size: calc(10 * var(--font-size-base));
+    line-height: 1.5em;
+}
+
+.grid .content .grid-text p {
+    color: inherit;
+    text-indent: 0;
+    padding: 0;
+}
+
+.grid .content:nth-child(even) .grid-image {
+    grid-column: 2;
+}
+
+.grid .content:nth-child(even) .grid-text {
+    grid-column: 1;
+    grid-row: 1;
+
+}
+
 /* Footer */
 
 footer {

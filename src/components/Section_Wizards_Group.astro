@@ -1,0 +1,25 @@
+---
+import Swiper_Slide from "./Swiper_Slide.astro";
+const wizards = await Astro.glob("../../content/wizard/*.{md,mdx}");
+---
+
+<section id="wizards-images" class="slider-container bg-red">
+  <div class="top-icon">The Covenant</div>
+  <div class="swiper fullscreen slide">
+    <div class="swiper-wrapper">
+      {
+        wizards.map((post) => (
+          <>
+            <Swiper_Slide
+              imageURL={post.frontmatter.imageURL}
+              title={post.frontmatter.title}
+            />
+          </>
+        ))
+      }
+    </div>
+
+    <div class="swiper-button-prev swiper-button"></div>
+    <div class="swiper-button-next swiper-button"></div>
+  </div>
+</section>

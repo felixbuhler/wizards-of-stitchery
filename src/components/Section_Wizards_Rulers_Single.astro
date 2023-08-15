@@ -1,0 +1,24 @@
+---
+import Swiper_Slide from "./Swiper_Slide.astro";
+
+const wizardRulersSingle = await Astro.glob("../../content/wizardrulersingle/*.{md,mdx}");
+---
+<section id="wizard-leader-images" class="slider-container bg-red">
+    <div class="swiper fullscreen fade no-border">
+      <div class="swiper-wrapper">
+        {
+          wizardRulersSingle.map((post) => (
+            <>
+              <Swiper_Slide
+                imageURL={post.frontmatter.imageURL}
+                title={post.frontmatter.title}
+              />
+            </>
+          ))
+        }
+      </div>
+  
+      <div class="swiper-button-prev swiper-button"></div>
+      <div class="swiper-button-next swiper-button"></div>
+    </div>
+  </section>
