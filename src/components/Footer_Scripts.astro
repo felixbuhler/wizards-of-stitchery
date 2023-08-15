@@ -10,11 +10,12 @@
         s.destroy();
       }
 
-      const swiperForests = new Swiper(".swiper[fullscreen]", {
+      const swiperSlide = new Swiper(".swiper.slide", {
         // Optional parameters
         direction: "horizontal",
         loop: true,
         effect: "slide",
+        spaceBetween: 140,
         speed: 1000,
 
         // If we need pagination
@@ -29,7 +30,7 @@
         },
       });
 
-      const swiperCastles = new Swiper(".swiper.castles", {
+      const swiperFade = new Swiper(".swiper.fade", {
         // Optional parameters
         direction: "horizontal",
         loop: true,
@@ -50,4 +51,6 @@
           prevEl: ".swiper-button-prev",
         },
       });
+
+  
     </script>

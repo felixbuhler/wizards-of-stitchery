@@ -9094,10 +9094,10 @@
   dependencies:
     "tslib" "^2.0.3"
 
-"swiper@^10.0.4":
-  "integrity" "sha512-DlNR3KiaVkPep6RraZ2tNr7lvyuzELuR+4NZr4wO42t0UworIO3DxDlz8b5Q3uUioh7cJad99EdRJLkPF+r8Ag=="
-  "resolved" "https://registry.npmjs.org/swiper/-/swiper-10.0.4.tgz"
-  "version" "10.0.4"
+"swiper@^10.1.0":
+  "integrity" "sha512-E+wh+hcSbwlRfXuwBTclcOOikOjNdSF0a2Sdg3J4cIWtHO64A7SaLRfezfrJ67CW3GEc15AduYU2YKlElsjqsQ=="
+  "resolved" "https://registry.npmjs.org/swiper/-/swiper-10.1.0.tgz"
+  "version" "10.1.0"
 
 "synckit@^0.8.4":
   "integrity" "sha512-L1dapNV6vu2s/4Sputv8xGsCdAVlb5nRDMFU/E27D44l5U6cw1g0dGd45uLc+OXjNMmF4ntiMdCimzcjFKQI8Q=="

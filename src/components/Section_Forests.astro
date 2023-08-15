@@ -1,0 +1,37 @@
+---
+import Swiper_Slide from "./Swiper_Slide.astro";
+
+const forests = await Astro.glob("../../content/forest/*.{md,mdx}");
+---
+
+<section id="forests-text" class="bg-dark full-height distance">
+  <div
+    class="text normal-width text-purple text-size-big text-serif text-center"
+  >
+    <div class="icon tree"></div>
+    <span class="text-blackletter">In a realm of yore,</span> a primeval woodland
+    unfurled, veiled in an ethereal veil. Its verdant depths whispered ancient secrets,
+    where time itself seemed to dance amidst the gnarled branches and dappled glades.
+  </div>
+</section>
+
+<section id="forests-images" class="slider-container bg-purple">
+  <div class="top-icon">The Forests Of Ygg</div>
+  <div class="swiper fullscreen slide">
+    <div class="swiper-wrapper">
+      {
+        forests.map((post) => (
+          <>
+            <Swiper_Slide
+              imageURL={post.frontmatter.imageURL}
+              title={post.frontmatter.title}
+            />
+          </>
+        ))
+      }
+    </div>
+
+    <div class="swiper-button-prev swiper-button"></div>
+    <div class="swiper-button-next swiper-button"></div>
+  </div>
+</section>

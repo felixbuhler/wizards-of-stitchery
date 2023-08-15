@@ -1,0 +1,82 @@
+---
+import Swiper_Slide from "./Swiper_Slide.astro";
+
+const wizards = await Astro.glob("../../content/wizard/*.{md,mdx}");
+---
+
+<section id="wizards-text" class="bg-red distance">
+  <div class="text normal-width text-dark text-size-big text-serif text-center">
+    <div class="icon wizard"></div>
+    <span class="text-blackletter">In the realm of shadows</span>, there
+    assembled a coven of maleficent sorcerers, clad in dark robes and bearing
+    twisted staffs. They were ensnared in the art of wicked enchantments, their
+    hearts veiled in darkness and their souls steeped in malevolence. Together,
+    they conspired to unleash a torrent of unspeakable horrors upon the land,
+    their sinister powers intertwining to weave a tapestry of despair.
+  </div>
+</section>
+
+<section id="wizards-images" class="slider-container bg-red">
+  <div class="top-icon">The Covenant</div>
+  <div class="swiper fullscreen slide">
+    <div class="swiper-wrapper">
+      {
+        wizards.map((post) => (
+          <>
+            <Swiper_Slide
+              imageURL={post.frontmatter.imageURL}
+              title={post.frontmatter.title}
+            />
+          </>
+        ))
+      }
+    </div>
+
+    <div class="swiper-button-prev swiper-button"></div>
+    <div class="swiper-button-next swiper-button"></div>
+  </div>
+</section>
+<section id="wizards-long-text" class="bg-dark distance">
+  <div class="text normal-width text-red text-serif-small">
+    <h3 class="text-red text-blackletter">In a world shrouded by an eternal gloom …</h3>
+    <p class="long-copy">
+      … the malevolent wizard known as Draven ruled with an iron fist from his
+      sinister stronghold, the Citadel of Shadows. Clad in dark robes that
+      seemed to absorb all light, Draven wielded a twisted staff and a cursed
+      orb, channeling the very essence of despair and destruction. Under
+      Draven's maleficent rule, the land of Desolacia languished in eternal
+      darkness. The once-vibrant landscapes were now desolate wastelands, and
+      the skies above were forever obscured by ominous clouds. The people,
+      crushed under the weight of Draven's oppressive regime, lived in constant
+      fear and despair. Within the Citadel of Shadows, the air was thick with an
+      aura of malevolence. Sinister creatures prowled the dark corridors,
+      serving as the wizard's loyal minions. Hidden chambers echoed with
+      forbidden incantations, as Draven delved deeper into the dark arts,
+      harnessing powers that defied the laws of nature. One fateful night,
+      Draven summoned an ancient ritual of unspeakable power, harnessing the
+      energy of the cursed orb to plunge the world into an even deeper abyss of
+      darkness. The land trembled, and a thick fog of desolation enveloped
+      Desolacia, consuming everything in its path. The very soul of the realm
+      seemed to wither under Draven's malevolent gaze. As the days turned into
+      years, the people's resistance dwindled. Any brave souls who dared to
+      challenge Draven's rule were swiftly silenced, their hope crushed under
+      the weight of his unyielding power. The once-great cities were reduced to
+      ruins, and the people's dreams were nothing but a distant memory. In a
+      final, devastating blow, Draven cast a spell so potent that it fractured
+      the very fabric of reality. The boundaries between the mortal realm and
+      the shadow realm blurred, and malevolent entities poured forth, laying
+      waste to the land. Desolacia became a desolate and lifeless wasteland,
+      ruled by darkness and despair. The once-proud civilization now lay in
+      ruins, and its people had become mere shadows of their former selves.
+      Draven reveled in his victory, his heart devoid of any semblance of
+      remorse. In the heart of the Citadel of Shadows, Draven stood triumphant,
+      his twisted staff raised high, and the cursed orb emanating a sickly glow.
+      He had achieved his ultimate goal - to plunge the world into eternal
+      darkness, a dystopian nightmare from which there seemed to be no escape.
+      And so, the evil wizard Draven reigned supreme, his victory casting a
+      perpetual pall of gloom over the world. The tale of Desolacia became a
+      cautionary one, a reminder of the devastating consequences that awaited
+      when darkness triumphed over light, and evil conquered all.
+    </p>
+  </div>
+</section>

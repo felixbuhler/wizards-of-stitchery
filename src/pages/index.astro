@@ -1,14 +1,14 @@
 ---
 import Header from "../components/Header.astro";
 
-import Mountains from "../components/Mountains.astro";
-import Intro from "../components/Intro.astro";
-import ForestSection from "../components/ForestSection.astro";
-import Spotify from "../components/Spotify.astro";
-import CastleSection from "../components/CastleSection.astro";
-import WizardSection from "../components/WizardSection.astro";
+import Section_Mountain from "../components/Section_Mountain.astro";
+import Section_Forests from "../components/Section_Forests.astro";
+import Section_Castles from "../components/Section_Castles.astro";
+import Section_Wizards from "../components/Section_Wizards.astro";
+
 import Footer from "../components/Footer.astro";
-import FooterScripts from "../components/FooterScripts.astro";
+import Footer_Scripts from "../components/Footer_Scripts.astro";
+
 ---
 
 <html lang="en">
@@ -36,18 +36,17 @@ import FooterScripts from "../components/FooterScripts.astro";
     <!-- JS -->
   </head>
   <body id="skrollr-body">
+    <!-- Header & Logo -->
     <Header />
 
-    <Mountains />
-    <main>
-      <Intro />
-      <ForestSection />
-      <Spotify />
-      <CastleSection />
-      <WizardSection />
-      <Footer />
-    </main>
-    
-    <FooterScripts />
+    <!-- Sections -->
+    <Section_Mountain />
+    <Section_Forests />
+    <Section_Castles />
+    <Section_Wizards />
+
+    <!-- Footer -->
+    <Footer />
+    <Footer_Scripts />
   </body>
 </html>
