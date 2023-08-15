@@ -90,17 +90,21 @@ body {
 }
 
 
-header {
+header,
+#spotify {
     padding: calc(0.25 * var(--padding)) calc(0.5 * var(--padding)) calc(0.15 * var(--padding)) calc(0.5 * var(--padding));
     border-radius: 5px;
     background: var(--purple);
     left: 50%;
-    top: calc(0.6 * var(--padding));
     display: block;
-    translate: -50%;
     position: fixed;
     z-index: 9999;
-    -skrollr-animation-name: logo-small;
+  
+}
+
+header {
+    top: calc(0.6 * var(--padding));
+    translate: -50%;  -skrollr-animation-name: logo-small;
 }
 
 #logo-small {
@@ -318,7 +322,8 @@ section.mountains {
     margin-right: auto;
 }
 
-.long-copy, .grid .text-serif-small {
+.long-copy,
+.grid .text-serif-small {
     font-size: calc(1.5 * var(--font-size-base));
     line-height: 1.8em;
     text-indent: 30px;
@@ -518,6 +523,23 @@ section.mountains {
 }
 
 /* Footer */
+
+@-skrollr-keyframes spotify-animation {
+
+    0p {
+        display: block;
+       translate: -50% 400%
+    }
+
+    18p {
+        translate: -50% 0%
+    }
+}
+
+#spotify {
+    bottom: calc(0.6 * var(--padding));
+    -skrollr-animation-name: spotify-animation;
+}
 
 footer {
     display: block;
